@@ -1,7 +1,14 @@
 <h1>Astronauts</h1>
 <% @astronauts.each do |astro| %>
-  <p>Name: <%= astro.name %></p>
-  <p>Age: <%= astro.age %></p>
-  <p>Job: <%= astro.job %></p>
+  <div class="astronaut-<%= astro.id %>">
+    <p>Name: <%= astro.name %></p>
+    <p>Age: <%= astro.age %></p>
+    <p>Job: <%= astro.job %></p>
+    <p>Missions: <% astro.alpha_missions.each do |mission| %>
+        <p><%= mission.title %></p>
+      <% end %>
+    </p>
+    <p>Time in space: <%= astro.total_time_in_space %></p>
+  </div>
 <% end %>
 <p>Average Age: <%= @astronauts.average_age %></p>
